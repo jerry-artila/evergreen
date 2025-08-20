@@ -7,12 +7,11 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build"
+    "dev": "tailwindcss -i ./input.css -o ./style.css --watch",
+    "build": "tailwindcss -i ./input.css -o ./style.css"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.12",
-    "tailwindcss": "^4.1.12",
-    "vite": "^6.3.5"
+    "@tailwindcss/cli": "^4.1.12",
+    "tailwindcss": "^4.1.12"
   }
 }
