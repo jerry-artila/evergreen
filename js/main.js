@@ -10,7 +10,7 @@ const AVAILABLE_FONT_SIZES = [
   'text-3xl',     // 30px
   'text-4xl',     // 36px (預設)
   'text-5xl',     // 48px
-  // 'text-6xl',     // 60px
+  'text-6xl',     // 60px
   // 'text-7xl',     // 72px
   // 'text-8xl',     // 96px
   // 'text-9xl'      // 128px
