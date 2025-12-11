@@ -6,14 +6,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/output.css">
   <title>H101 蒙恩見證 (安森區)</title>
+  <style>
+    /* 折叠风琴样式 */
+    .accordion-item {
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .accordion-item:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .accordion-header {
+      background-color: #f9fafb;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.2s ease;
+    }
+    
+    .accordion-header:hover {
+      background-color: #f3f4f6;
+    }
+    
+    .accordion-header.active {
+      background-color: #eff6ff;
+    }
+    
+    .accordion-title {
+      font-weight: bold;
+      color: #dc2626;
+      margin: 0;
+      flex: 1;
+    }
+    
+    .accordion-icon {
+      font-size: 1.5rem;
+      color: #3b82f6;
+      transition: transform 0.3s ease;
+      margin-left: 1rem;
+    }
+    
+    .accordion-header.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      padding: 0 1.5rem;
+    }
+    
+    .accordion-content.active {
+      max-height: 10000px;
+      padding: 1.5rem;
+    }
+    
+    /* 打印时显示所有内容 */
+    @media print {
+      .accordion-content {
+        max-height: none !important;
+        padding: 1.5rem !important;
+        display: block !important;
+      }
+      .accordion-header {
+        cursor: default;
+      }
+      .accordion-icon {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div id="main" class="leading-tight font-WenKai px-4 mb-32 print:mb-0 mx-auto text-2xl">
     <h1 class="text-4xl font-bold text-center text-green-800 mb-6">H101 蒙恩見證<br>(安森區)</h1>
 
-    <div id="柯文娟的蒙恩見證" class="my-8">
-      <h2 class="text-2xl font-bold text-red-400 mb-6">柯文娟的蒙恩見證</h2>
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h2 class="accordion-title text-2xl font-bold text-red-400">柯文娟的蒙恩見證</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
         <p class="mb-2 text-blue-500" style="text-indent: 2ch;">
           賽四一 10「你不要害怕，因為我與你同在；不要驚慌，因為我是你的神。我必加強你，必幫助你，必用我公義的右手扶持你。」
         </p>
@@ -42,9 +124,14 @@
           當然，也要感謝弟兄姐妹的持續代禱，在臺大醫院住院 2 個月（含 ICU 的 1
           個月）期間，身體慢慢轉好了。而後居家療養期間，蒙弟兄姐妹們的扶持，讓我的靈、魂、身體得蒙保守、醫治；同時因著神的愛，讓原本衝突的家庭成員關係變得和諧許多。
         </p>
+      </div>
     </div>
-    <div id="馬鴻麗的蒙恩見證" class="my-8">
-      <h2 class="text-2xl font-bold text-red-400 mb-6">馬鴻麗的蒙恩見證</h2>
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h2 class="accordion-title text-2xl font-bold text-red-400">馬鴻麗的蒙恩見證</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
         <p class="mb-2" style="text-indent: 2ch;">
           今年年初，因為幫姊妹搬東西，不慎從三樓樓梯摔下來，導致右腳腳趾骨折，隔天騎摩托車又跌倒，我當下跟主說，怎麼又來了，心裡很難過。
           到了醫院，醫生在我下巴縫了四針，我就回家了。我是個心比較粗的人，個性比較急，今天會發生這些事，乃是個性使然，感謝主還好是下巴，沒有破相。
@@ -56,10 +143,15 @@
         <p class="mb-2" style="text-indent: 2ch;">
           求主天天扶持我，給我力量保守我，使我一生走窄路，使主心滿意足
         </p>
+      </div>
     </div>
-    <div id="余受恩的蒙恩見證" class="my-8">
-      <h2 class="text-2xl font-bold text-red-400 mb-6">余受恩的蒙恩見證</h2>
-        <p class="mb-2 text-blue-500">林前二 9 「只是如經上所記：神為愛祂的人所豫備的，是眼睛未曾看見，耳朵未曾聽見，人心也未曾想到的。」。</p>
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h2 class="accordion-title text-2xl font-bold text-red-400">余受恩的蒙恩見證</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <p class="mb-2 text-blue-500" style="text-indent: 2ch;">林前二 9 「只是如經上所記：神為愛祂的人所豫備的，是眼睛未曾看見，耳朵未曾聽見，人心也未曾想到的。」。</p>
         <p class="mb-2" style="text-indent: 2ch;">
           感謝神為我豫備了祂自己作我的一切，<span class="bg-yellow-100 px-2 py-1 rounded">一切我所有，無非是接受。
           </span>
@@ -92,9 +184,14 @@
         <p class="mb-2" style="text-indent: 2ch;">
           主啊! 感謝你，你還未成就多年為家人，以及為聖徒恢復禱告的事上，你還在信心上試煉我，讓我不敢偏離你。但我知「<span class="text-blue-500">我所信的是誰，並且也深信你實在是能保守我所信託你的，都全備直到那日</span>」，感謝我所愛的 愛主 ....。
         </p>
+      </div>
     </div>
-    <div id="劉以斯帖的蒙恩見證" class="my-8">
-      <h2 class="text-2xl font-bold text-red-400 mb-6">劉以斯帖的蒙恩見證</h2>
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h2 class="accordion-title text-2xl font-bold text-red-400">劉以斯帖的蒙恩見證</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
         <p class="mb-2" style="text-indent: 2ch;">
           真是感謝主！這一年，我是卸下了我在地上所有的纏累，專心的享受神的恩典！
         </p>
@@ -124,10 +221,15 @@
         </p>
         <p class="mb-2" style="text-indent: 2ch;">
           感謝主，讓我整天都在主的懷裏，我真是快樂無比！
-        </p> 
+        </p>
+      </div>
     </div>
-    <div id="莊嘉敏的蒙恩見證" class="my-8">
-      <h2 class="text-2xl font-bold text-red-400 mb-6">莊嘉敏的蒙恩見證</h2>
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h2 class="accordion-title text-2xl font-bold text-red-400">莊嘉敏的蒙恩見證</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
         <p class="mb-2" style="text-indent: 2ch;">
           信主以前，我從事行銷相關的工作，做事常常很急，也因為壓力大，脾氣比較暴躁、容易沒有耐心。在家庭中，我對婆婆、孩子和先生的關心比較少，回到家常常只想休息，也沒有主動為家人預備餐點的習慣。以前我有在拜拜，但我知道聖經提到神不喜歡人拜偶像，所以一直不敢去教會。
         </p>
@@ -148,17 +250,18 @@
           我發現太太現在每天願意為我和孩子預備早餐和晚餐。她看到我們吃得開心，她說她心裡也充滿喜樂。以前遇到孩子不聽話，她容易發脾氣，但現在她更有耐心，也懂得靜下心來與我們溝通。
         </span>
       </blockquote>
-      <p class="mb-2" style="text-indent: 2ch;">
-        主的話是信實的，聖經說:
-        <span class="text-blue-600">「當信靠主耶穌，你和你一家都必得救。」</span>這些改變不是靠我自己能做到的，而是真實地經歷到主的愛，是主的生命改變了我。
-      </p>
-      </section>
-
-
-
+        <p class="mb-2" style="text-indent: 2ch;">
+          主的話是信實的，聖經說:
+          <span class="text-blue-600">「當信靠主耶穌，你和你一家都必得救。」</span>這些改變不是靠我自己能做到的，而是真實地經歷到主的愛，是主的生命改變了我。
+        </p>
+      </div>
     </div>
-    <div id="李嘉宏的蒙恩見證" class="my-8">
-      <h2 class="text-2xl font-bold text-red-400 mb-6">李嘉宏的蒙恩見證</h2>
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h2 class="accordion-title text-2xl font-bold text-red-400">李嘉宏的蒙恩見證</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
         <p class="mb-2 text-blue-500" style="text-indent: 2ch;">
           太七 1-2「不要審判，免得你們受審判；因為你們用甚麼審判審判人，也必受甚麼審判；你們用甚麼量器量給人，也必用甚麼量器量給你們」
         </p>
@@ -190,7 +293,7 @@
         <p class="mb-2" style="text-indent: 2ch;">
           前半年也因個人因素未能聚會，只靠每週三的弟兄排維持光景；感謝主，「<span class="text-blue-500">不可放棄你們的聚集</span>」，最終主仍把我尋回。若想改變明天，必須先改變今天，操練時時歌頌讚美神、轉向神開始。神喜歡的是人來到祂的面前、願意悔改的人，祂能更新我們，使我們活出經文中的真理。
         </p>
-
+      </div>
     </div>
   </div>
   <!-- 調整字體大小和打印 -->
@@ -200,6 +303,41 @@
   </div>
   <!-- 調整字體大小代碼-->
   <script src="js/main.js"></script>
+  <!-- 折叠风琴功能 -->
+  <script>
+    function toggleAccordion(header) {
+      const content = header.nextElementSibling;
+      const isActive = header.classList.contains('active');
+      
+      // 关闭所有其他折叠项（可选：如果希望只打开一个）
+      // const allItems = document.querySelectorAll('.accordion-item');
+      // allItems.forEach(item => {
+      //   const itemHeader = item.querySelector('.accordion-header');
+      //   const itemContent = item.querySelector('.accordion-content');
+      //   if (itemHeader !== header) {
+      //     itemHeader.classList.remove('active');
+      //     itemContent.classList.remove('active');
+      //   }
+      // });
+      
+      // 切换当前项
+      if (isActive) {
+        header.classList.remove('active');
+        content.classList.remove('active');
+      } else {
+        header.classList.add('active');
+        content.classList.add('active');
+      }
+    }
+    
+    // 页面加载时，可以设置默认展开第一个（可选）
+    // document.addEventListener('DOMContentLoaded', function() {
+    //   const firstHeader = document.querySelector('.accordion-header');
+    //   if (firstHeader) {
+    //     toggleAccordion(firstHeader);
+    //   }
+    // });
+  </script>
 
 </body>
 

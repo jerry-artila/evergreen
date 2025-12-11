@@ -8,7 +8,7 @@ const AVAILABLE_FONT_SIZES = [
   'text-xl',      // 20px
   'text-2xl',     // 24px
   'text-3xl',     // 30px
-  'text-4xl',     // 36px (預設)
+  'text-4xl',     // 36px
   'text-5xl',     // 48px
   'text-6xl',     // 60px
   // 'text-7xl',     // 72px
@@ -18,13 +18,20 @@ const AVAILABLE_FONT_SIZES = [
 
 // ===== 狀態管理 =====
 const DEFAULT_FONT_SIZE = 'text-4xl';
+const MIN_FONT_SIZE_INDEX = 0;
+const MAX_FONT_SIZE_INDEX = AVAILABLE_FONT_SIZES.length - 1;
 
 // ===== DOM 元素 =====
 const mainElement = document.getElementById('main');
 const fontIncreaseButton = document.getElementById('increaseFontSizeButton');
 const fontDecreaseButton = document.getElementById('decreaseFontSizeButton');
 
-// 從頁面實際字體大小初始化索引，如果找不到則使用預設值
+// ===== 初始化函數 =====
+/**
+ * 從頁面實際字體大小初始化索引
+ * 檢查 main 元素當前使用的字體大小類別，如果找不到則使用預設值
+ * @returns {number} 當前字體大小在陣列中的索引
+ */
 function getCurrentFontSizeIndex() {
   // 檢查 main 元素當前使用的字體大小類別
   for (let i = 0; i < AVAILABLE_FONT_SIZES.length; i++) {
@@ -56,7 +63,7 @@ function applyFontSizeToPage() {
  * 檢查是否已達到最大字體大小限制
  */
 function increaseFontSize() {
-  if (currentFontSizeIndex < AVAILABLE_FONT_SIZES.length - 1) {
+  if (currentFontSizeIndex < MAX_FONT_SIZE_INDEX) {
     currentFontSizeIndex++;
     applyFontSizeToPage();
   }
@@ -67,9 +74,7 @@ function increaseFontSize() {
  * 檢查是否已達到最小字體大小限制
  */
 function decreaseFontSize() {
-  const minFontSizeIndex = 0;
-  
-  if (currentFontSizeIndex > minFontSizeIndex) {
+  if (currentFontSizeIndex > MIN_FONT_SIZE_INDEX) {
     currentFontSizeIndex--;
     applyFontSizeToPage();
   }
