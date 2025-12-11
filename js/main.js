@@ -5,7 +5,7 @@ const AVAILABLE_FONT_SIZES = [
   // 'text-sm',      // 14px
   // 'text-base',    // 16px
   // 'text-lg',      // 18px
-  // 'text-xl',      // 20px
+  'text-xl',      // 20px
   'text-2xl',     // 24px
   'text-3xl',     // 30px
   'text-4xl',     // 36px (預設)
@@ -18,12 +18,25 @@ const AVAILABLE_FONT_SIZES = [
 
 // ===== 狀態管理 =====
 const DEFAULT_FONT_SIZE = 'text-4xl';
-let currentFontSizeIndex = AVAILABLE_FONT_SIZES.indexOf(DEFAULT_FONT_SIZE);
 
 // ===== DOM 元素 =====
 const mainElement = document.getElementById('main');
 const fontIncreaseButton = document.getElementById('increaseFontSizeButton');
 const fontDecreaseButton = document.getElementById('decreaseFontSizeButton');
+
+// 從頁面實際字體大小初始化索引，如果找不到則使用預設值
+function getCurrentFontSizeIndex() {
+  // 檢查 main 元素當前使用的字體大小類別
+  for (let i = 0; i < AVAILABLE_FONT_SIZES.length; i++) {
+    if (mainElement.classList.contains(AVAILABLE_FONT_SIZES[i])) {
+      return i;
+    }
+  }
+  // 如果找不到，返回預設字體大小的索引
+  return AVAILABLE_FONT_SIZES.indexOf(DEFAULT_FONT_SIZE);
+}
+
+let currentFontSizeIndex = getCurrentFontSizeIndex();
 
 // ===== 字體大小控制函數 =====
 
