@@ -1,3 +1,4 @@
-*.mov filter=lfs diff=lfs merge=lfs -text
-*.MOV filter=lfs diff=lfs merge=lfs -text
-*.mp4 filter=lfs diff=lfs merge=lfs -text
+# Video files are now compressed and under 100MB, no need for LFS
+# *.mov filter=lfs diff=lfs merge=lfs -text
+# *.MOV filter=lfs diff=lfs merge=lfs -text
+# *.mp4 filter=lfs diff=lfs merge=lfs -text
