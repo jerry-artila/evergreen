@@ -2,15 +2,23 @@
   "name": "evergreen",
   "version": "1.0.0",
   "description": "H101長青排信息",
-  "license": "ISC",
-  "author": "",
-  "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss -i ./css/input.css -o ./css/output.css --watch"
+    "dev": "npx tailwindcss -i ./css/input.css -o ./css/output.css --watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerry-artila/evergreen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jerry-artila/evergreen/issues"
+  },
+  "homepage": "https://github.com/jerry-artila/evergreen#readme",
   "devDependencies": {
-    "@tailwindcss/cli": "^4.1.12",
-    "tailwindcss": "^4.1.12"
+    "@tailwindcss/cli": "^4.3.1",
+    "tailwindcss": "^4.3.1"
   }
 }
