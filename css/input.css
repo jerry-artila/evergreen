@@ -6,6 +6,6 @@
 }
 
 p {
-  @apply mt-4;
+  @apply mb-4 text-4xl/12;
 }
 
