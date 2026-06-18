@@ -5,7 +5,7 @@
   --font-WenKai: "LXGW WenKai Mono TC", monospace;
 }
 
-p {
-  @apply mb-4 text-4xl/12;
+p, blockquote {
+  @apply mb-4;
 }
 

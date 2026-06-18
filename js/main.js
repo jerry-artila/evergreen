@@ -1,85 +1,50 @@
-// ===== 字體大小配置 =====
-// 可用的字體大小類別陣列（從小到大）
-const AVAILABLE_FONT_SIZES = [
-  // 'text-xs',      // 12px
-  // 'text-sm',      // 14px
-  // 'text-base',    // 16px
-  // 'text-lg',      // 18px
-  'text-xl',      // 20px
-  'text-2xl',     // 24px
-  'text-3xl',     // 30px
-  'text-4xl',     // 36px
-  'text-5xl',     // 48px
-  'text-6xl',     // 60px
-  // 'text-7xl',     // 72px
-  // 'text-8xl',     // 96px
-  // 'text-9xl'      // 128px
+// 可用的字體大小/行高組合（從小到大）
+const FONT_SIZE_TABLE = [
+  'text-xl/8',
+  'text-2xl/9',
+  'text-3xl/11',
+  'text-4xl/13', // 預設值
+  'text-5xl/15',
+  'text-6xl/18',
 ];
 
-// ===== 狀態管理 =====
-const DEFAULT_FONT_SIZE = 'text-4xl';
-const MIN_FONT_SIZE_INDEX = 0;
-const MAX_FONT_SIZE_INDEX = AVAILABLE_FONT_SIZES.length - 1;
+// 初始化並綁定按鈕事件
+document.addEventListener('DOMContentLoaded', () => {
+  const mainEl = document.getElementById('main');
+  const incBtn = document.getElementById('increaseFontSizeButton');
+  const decBtn = document.getElementById('decreaseFontSizeButton');
 
-// ===== DOM 元素 =====
-const mainElement = document.getElementById('main');
-const fontIncreaseButton = document.getElementById('increaseFontSizeButton');
-const fontDecreaseButton = document.getElementById('decreaseFontSizeButton');
+  if (!mainEl || !incBtn || !decBtn) return;
 
-// ===== 初始化函數 =====
-/**
- * 從頁面實際字體大小初始化索引
- * 檢查 main 元素當前使用的字體大小類別，如果找不到則使用預設值
- * @returns {number} 當前字體大小在陣列中的索引
- */
-function getCurrentFontSizeIndex() {
-  // 檢查 main 元素當前使用的字體大小類別
-  for (let i = 0; i < AVAILABLE_FONT_SIZES.length; i++) {
-    if (mainElement.classList.contains(AVAILABLE_FONT_SIZES[i])) {
-      return i;
+  // 套用預設字體大小
+  let defaultIndex = FONT_SIZE_TABLE.indexOf('text-4xl/13');
+  let currentFontIndex = defaultIndex;
+  applyFontSize(defaultIndex);
+
+
+  function applyFontSize(index) {
+    // 移除所有已知的字體 class，然後加上指定的 class
+    mainEl.classList.remove(...FONT_SIZE_TABLE);
+    mainEl.classList.add(FONT_SIZE_TABLE[index]);
+    // 更新按鈕的 disabled 狀態（邊界時禁用）
+    incBtn.disabled = index >= FONT_SIZE_TABLE.length - 1;
+    decBtn.disabled = index <= 0;
+  }
+
+  incBtn.addEventListener('click', () => {
+    if (currentFontIndex < FONT_SIZE_TABLE.length - 1) {
+      currentFontIndex += 1;
+      applyFontSize(currentFontIndex);
     }
-  }
-  // 如果找不到，返回預設字體大小的索引
-  return AVAILABLE_FONT_SIZES.indexOf(DEFAULT_FONT_SIZE);
-}
+  });
 
-let currentFontSizeIndex = getCurrentFontSizeIndex();
+  decBtn.addEventListener('click', () => {
+    if (currentFontIndex > 0) {
+      currentFontIndex -= 1;
+      applyFontSize(currentFontIndex);
+    }
+  });
 
-// ===== 字體大小控制函數 =====
+});
 
-/**
- * 更新頁面字體大小
- * 移除所有字體大小類別，然後添加當前選中的類別
- */
-function applyFontSizeToPage() {
-  // 移除所有字體大小類別
-  mainElement.classList.remove(...AVAILABLE_FONT_SIZES);
-  // 添加當前選中的字體大小類別
-  mainElement.classList.add(AVAILABLE_FONT_SIZES[currentFontSizeIndex]);
-}
 
-/**
- * 增加字體大小
- * 檢查是否已達到最大字體大小限制
- */
-function increaseFontSize() {
-  if (currentFontSizeIndex < MAX_FONT_SIZE_INDEX) {
-    currentFontSizeIndex++;
-    applyFontSizeToPage();
-  }
-}
-
-/**
- * 減少字體大小
- * 檢查是否已達到最小字體大小限制
- */
-function decreaseFontSize() {
-  if (currentFontSizeIndex > MIN_FONT_SIZE_INDEX) {
-    currentFontSizeIndex--;
-    applyFontSizeToPage();
-  }
-}
-
-// ===== 事件監聽器設置 =====
-fontIncreaseButton.addEventListener('click', increaseFontSize);
-fontDecreaseButton.addEventListener('click', decreaseFontSize);
