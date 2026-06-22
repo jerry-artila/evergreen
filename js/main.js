@@ -2,8 +2,8 @@
 const FONT_SIZE_TABLE = [
   'text-xl/8',
   'text-2xl/9',
-  'text-3xl/11',
-  'text-4xl/13', // 預設值
+  'text-3xl/11', // 預設值
+  'text-4xl/13',
   'text-5xl/15',
   'text-6xl/18',
 ];
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!mainEl || !incBtn || !decBtn) return;
 
   // 套用預設字體大小
-  let defaultIndex = FONT_SIZE_TABLE.indexOf('text-4xl/13');
+  let defaultIndex = FONT_SIZE_TABLE.indexOf('text-3xl/11');
   let currentFontIndex = defaultIndex;
   applyFontSize(defaultIndex);
 
